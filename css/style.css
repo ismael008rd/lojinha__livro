@@ -13,7 +13,7 @@ body{
     padding-block: 2rem;
    
     display: flex;
-    background-image: url('/img/livroheader.png');
+    background-image: url('/img/unsplash_h1kCrbdfGHM.svg');
     background-size: cover;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,7 @@ body{
 
 .header__menu{
     width: 50%;
-    height:130px ;
+    height:230px ;
     
     display: flex;
     flex-direction: column;
@@ -35,9 +35,11 @@ body{
 .header__menu--logo img{
    width: 100px;
    height: 100px;
-   height: auto;
+   margin-block: 1.2rem;
    border-radius: 50%;
 }
+
+
 .header__menu--horario{
     background-color: green;
 
@@ -90,7 +92,11 @@ body{
    
 }
 .main__boxlivros--title img{
+    transition: .3s;
     width: 100px;
+}
+.main__boxlivros--title img:hover{
+    transform: scale(1.1);
 }
 .main__boxlivros--title p:nth-child(2){
     font-size: 1.2rem;
