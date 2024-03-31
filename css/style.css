@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: "Poppins", sans-serif;
 }
 body{
     height: 100vh;
@@ -13,7 +14,7 @@ body{
     padding-block: 2rem;
    
     display: flex;
-    background-image: url('/img/unsplash_h1kCrbdfGHM.svg');
+    background-image: url('../img/unsplash_h1kCrbdfGHM.svg');
     background-size: cover;
     flex-direction: column;
     align-items: center;
@@ -55,7 +56,7 @@ body{
     
     gap: 1.5rem;
     
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 .main{
     display: flex;
@@ -86,20 +87,24 @@ body{
     /* background-color: gray; */
 }
 .main__boxlivros--title{
+    
     width: 100%;
+    padding: 1rem;
     display: flex;
     gap: .8rem;
+    ;
    
 }
 .main__boxlivros--title img{
     transition: .3s;
+   
     width: 100px;
 }
 .main__boxlivros--title img:hover{
     transform: scale(1.1);
 }
 .main__boxlivros--title p:nth-child(2){
-    font-size: 1.2rem;
+    font-size:.5rem;
     
 }
 
@@ -116,11 +121,18 @@ body{
     padding: .7rem;
     outline: none;
 }
+.main__boxlivros--precodescri{
+    width: 100%;
+    height: 180px;
+    overflow: auto;
+    /* background-color: red; */
+}
 .main__boxlivros--precodescri h1{
     font-size: 1.3rem;
 }
 
 .main__boxlivros--precodescri p{
+    
     text-align: justify;
 }
 
@@ -135,7 +147,7 @@ body{
     padding-block: 1rem;
     justify-content: center;
     align-items: center;
-    background-color: rgb(245, 68, 68);
+    background-color: rgb(40, 29, 29);
 }
 .button__adicionar{
     border: 2px solid red;

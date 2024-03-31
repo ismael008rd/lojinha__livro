@@ -65,8 +65,8 @@
 .button__carrinho--comprar{
     border: none;
     cursor: pointer;
-    background-color: black;
-    padding: .5rem;
+    background-color: rgb(181, 22, 59);
+    padding: 1rem;
     border-radius: 5px;
     color: white;
     outline: none;
