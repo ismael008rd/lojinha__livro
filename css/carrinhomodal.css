@@ -1,0 +1,79 @@
+.main__modal{
+    position:fixed;
+    top: 0;
+    background-color:rgba(0,0,0,0.75);
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+   
+}
+.modal--carrinho{
+    width: 80%;
+    padding: .9rem;
+    
+  
+    font-weight: bold;
+    max-width: 800px;
+    
+    background-color: white;
+}
+.modal--carrinho h2{
+    margin-bottom: 1.2rem;
+}
+.items{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+.input__address{
+    background-color: #ddd;
+    padding: .4rem;
+    margin-block: .3rem;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.adress__erro{
+    color: red;
+    visibility: hidden;
+}
+.buttons__modal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close-modal-btn, .checkout-btn{
+    padding: .8rem;
+    border: none;
+    cursor: pointer;
+
+}
+.checkout-btn{
+    background-color: rgb(13, 236, 57);
+}
+
+.hidden{
+    display: none;
+}
+
+.button__carrinho--comprar{
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    padding: .5rem;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+}
+.element__modal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
