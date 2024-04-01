@@ -77,3 +77,21 @@
     align-items: center;
 }
 
+.title__modal-name{
+    font-size: .9rem;
+    color: red;
+}
+
+.modal_quantit{
+    font-weight: 300;
+}
+
+.modal__remover{
+    border: none;
+    border-radius: .2rem;
+    cursor: pointer;
+    padding: .3rem;
+}
+.modal__remover:hover{
+    background-color: #cfcaca;
+}

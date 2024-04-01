@@ -5,9 +5,9 @@ const items__carrinho = document.querySelector('.items')
 const close__modal = document.querySelector('.close-modal-btn')
 const number__card = document.querySelectorAll('.number__card')
 const carrinho__comprar= document.querySelector('.carrinho__comprar')
-
- 
-
+const titleh2 = document.querySelector('.titleh2')
+const inputModal = document.querySelector('.input__address')
+const checkout__btn= document.querySelector('.checkout-btn')
 
 close__modal.addEventListener('click',()=>{
     main__modal.classList.add('hidden')
@@ -24,6 +24,8 @@ main__modal.addEventListener('click',(event)=>{
 
 button__carrinho.addEventListener('click',()=>{
       main__modal.classList.remove('hidden')
+      
+      
 })
 
 
@@ -78,13 +80,14 @@ function updaTeModal(){
     cart.forEach((element)=>{
         const creatDivmodal = document.createElement('div')
 
+
         // console.log(element)
         const itemsModal=`
         <div class='items__modal'>
-        <h1>${element.name}</h1>
+        <h1 class='title__modal-name'>${element.name}</h1>
         <div class='element__modal'>
-        <p>Qtd: ${element.quantit}</p>
-        <button id='${element.id}'>Remover</button>
+        <p class='modal_quantit'>Qtd: ${element.quantit}</p>
+        <button id='${element.id}' class='modal__remover'>Remover</button>
         </div>
         <p>$ ${element.price}</p>
         </div>
@@ -146,39 +149,44 @@ function addCart(id, name, price){
  const modalCarrinho = document.querySelector('.modal--carrinho')
 
  modalCarrinho.addEventListener('click',(event)=>{
-    console.log(event.target)
-    const veributton = event.target.closest('button')
-    if(veributton){
-        const pegarbutton = event.target.closest('button').id
-        console.log(pegarbutton)
-        const enconcontrarele= cart.findIndex(elemento=>elemento.id ==pegarbutton)
-        if(cart[enconcontrarele].quantit >0){
-            cart[enconcontrarele].quantit-=1
-            console.log('oppaaaaaaaaaaaaaaaaaaaa')
-            console.log(cart[enconcontrarele])
-            console.log(cart)
-            atualizarqunatitCarro(pegarbutton)
-            updaTeModal()
+    
+    const veributton = event.target.closest('.modal__remover')
+  
+    if(!veributton) return
+    const pegarbutton = event.target.closest('button').id
+    const enconcontrarele = cart.findIndex(elemento=>elemento.id == pegarbutton)
+    console.log(cart[enconcontrarele].quantit)
+   
+    if(veributton && cart[enconcontrarele].quantit >0){
+        console.log('caiu aqui ')
+       
+        cart[enconcontrarele].quantit-=1
+             updaTeModal()
             Carrinhofooter()
-            updateTotal()
-            console.log(cart[enconcontrarele].quantit)
+            updateTotal() 
 
-            if(cart[enconcontrarele].quantit==0){
-                console.log('igual a 0')
-                cart.splice(enconcontrarele,1)
-                console.log(cart)
-                updaTeModal()
-                updateTotal()
+                    
+            atualizarqunatitCarro(pegarbutton)
+            console.log( cart[enconcontrarele].quantit)
+
+            if (cart[enconcontrarele].quantit === 0) {
+                console.log('igual a 0');
+                cart.splice(enconcontrarele, 1);
+                console.log(cart);
+                updaTeModal();
+                updateTotal();
             }
-        }
+            
+    }      
+  
+       
+         console.log(cart)
 
-        
+        verfiCarrinho()
       
         console.log('ok é um button ')
-    }
-    if(event.target.classList.contains('btn__remover')){
-        console.log('sim')
-    }
+    
+    
 })
 
 function removerItemscard(id){
@@ -188,7 +196,8 @@ function removerItemscard(id){
        const item = cart[index]
        console.log(item)
     }
-
+    
+    verfiCarrinho()
 }
 
 const totalcards = document.querySelector('#card_total')
@@ -203,10 +212,10 @@ function updateTotal(){
 function atualizarqunatitCarro(id){
 
     for(let i = 0; i <cart.length; i++){
-if(cart[i].id === id){
+    if(cart[i].id === id){
     console.log(cart[i].id)
     console.log(id)
-   document.querySelector(`#${id}`).lastChild.innerText=`(${cart[i].quantit})`
+    document.querySelector(`#${id}`).lastChild.innerText=`(${cart[i].quantit})`
     console.log('isso isso')
 }
 
@@ -218,3 +227,27 @@ function Carrinhofooter(){
     carrinho__comprar.innerText=`(${cart.reduce((total, item)=> total + item.quantit,0)})`
 }
  
+function verfiCarrinho(){
+    if(items__carrinho.innerHTML==''){
+        console.log('carrinho de comprar vazio')
+        titleh2.innerText='Carrinho vazio'
+      }else{
+        titleh2.innerText='Meu carrinho'
+      }
+      
+}
+
+
+checkout__btn.addEventListener('click',()=>{
+    const address__erro = document.querySelector('.adress__erro')
+    console.log('clicado')
+    console.log(inputModal)
+    
+    if(inputModal.value==''){
+        console.log('input vazio')
+        address__erro.style.visibility='visible'
+    }else{
+        address__erro.style.visibility='hidden'
+    }
+ 
+})
